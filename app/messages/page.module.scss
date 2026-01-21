@@ -1,0 +1,22 @@
+.header {
+  border-radius: 5px;
+  padding: 20px;
+  background: rgba($color: white, $alpha: 0.7)
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header h3 {
+  margin: 0;
+  padding: 20px 0;
+  border-bottom: 1px solid black;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 10px;
+}

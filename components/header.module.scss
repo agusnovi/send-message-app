@@ -1,0 +1,134 @@
+.nav {
+    width: min(90%, 1300px);
+    margin: 20px auto;
+    background: black;
+    color: white;
+}
+
+.nav ul {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: white;
+    padding: 10px 20px;
+}
+
+.nav li:not(.logo) a:hover {
+    background: rgba($color: white, $alpha: 0.5);
+}
+
+.logo {
+    margin-right: auto;
+}
+
+.logo a {
+    text-transform: uppercase;
+    font-size: x-large;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.close-sidebar {
+    display: none;
+}
+
+.close-sidebar button {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+}
+
+.mobile-grid {
+    align-items: center;
+    display: none;
+    justify-content: space-between;
+}
+
+.mobile-grid a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: x-large;
+    color: white;
+}
+
+.mobile-grid button {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 700px) {
+    .mobile-grid {
+        display: flex;
+        margin: 20px;
+    }
+
+    .close-sidebar {
+        display: block;
+    }
+
+    .nav {
+        margin: 0 auto;
+        position: fixed;
+        height: 100vh;
+        top: 0;
+        right: -100%;
+        z-index: 1;
+        width: min(250px, 100%);
+        background: rgba($color: white, $alpha: 0.8);
+        transition: right .9s ease-in-out;
+    }
+
+    .nav ul {
+        flex-direction: column;
+    }
+
+    .nav li, .nav a {
+        width: 100%;
+        color: black;
+    }
+
+    .nav li:not(.logo) a:hover {
+        color: white;
+        background: rgba($color: #000000, $alpha: 0.8);
+    }
+
+    .backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba($color: #757272, $alpha: 0.8);
+        height: 100vh;
+        top: 0;
+        right: 0;
+        animation: blink 0.5s ease-in-out;
+    }
+
+    .show {
+        right: 0;
+    }
+
+    .show ~ .backdrop {
+        display: block;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
