@@ -11,9 +11,7 @@ export default function NewMessage() {
   const [state, formAction] = useActionState(createPost, { error: '' });
   
   // const response = await fetch("http://localhost:8080/messages")
-
   // const messages: Message[] = await response.json()
-  
   //if(!messages || messages.length === 0) return <p>No messages found!</p> 
 
   return (

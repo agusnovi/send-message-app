@@ -5,19 +5,17 @@ import { redirect } from "next/navigation"
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function createPost(prevState: any, formData: FormData) {
-    const payload = {
-      message: formData.get('message'),
-    }
+    const message = formData.get('message')
 
-    if (!payload.message || payload.message.toString().trim() === '' || payload.message === null) {
+    if (!message || message.toString().trim() === '' || message === null) {
         return {
             error: 'invalid input.'
         }
     }
         
-    await addMessage(payload.message.toString())
+    addMessage(message.toString())
 
-    //revalidatePath("/messages")
-    revalidateTag("msg", "max")
+    revalidatePath("/messages")
+    // revalidateTag("msg", "max")
     redirect("/messages")
 }
