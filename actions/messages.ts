@@ -1,6 +1,6 @@
 'use server'
 import { addMessage } from "@/messages"
-import { revalidatePath, revalidateTag } from "next/cache"
+import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -15,7 +15,6 @@ export async function createPost(prevState: any, formData: FormData) {
         
     addMessage(message.toString())
 
-    revalidatePath("/messages")
-    // revalidateTag("msg", "max")
+    revalidateTag('messages', 'max');
     redirect("/messages")
 }

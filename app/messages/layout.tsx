@@ -1,18 +1,10 @@
 import { ReactNode } from "react"
-import { unstable_noStore } from "next/cache"
-import { Message } from "@/lib/types"
 import { getMessages } from "@/messages"
+import { Message } from "@/lib/types"
 import styles from './page.module.scss'
 
-// export const dynamic = "force-dynamic"
-const MessageLayout = async ({ children }: { children: ReactNode }) => {
-  //unstable_noStore()
-  // const response = await fetch("http://localhost:8080/messages", {
-  //   cache: "force-cache"
-  // })
-  // const messages: Message[] = await response.json()
-
-  const messages = await getMessages();
+export default async function MessageLayout({ children }: { children: ReactNode }){
+  const messages: Message[] = await getMessages();
 
   return (
     <main className="main">
@@ -24,5 +16,3 @@ const MessageLayout = async ({ children }: { children: ReactNode }) => {
     </main>
   );
 };
-
-export default MessageLayout;
